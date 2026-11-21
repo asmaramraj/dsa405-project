@@ -1,26 +1,26 @@
-# dsa405-project
+## Project 3: Acquisition and Integration
 
-# DSA 405: Project 3 - Charlotte Hornets Points-in-the-Paint Analysis
+### Data Sources
+This project analyzes Charlotte Hornets scoring statistics from the 2025–2026 NBA season using `scoring.csv` and `team_scoring.csv`.
 
-## Overview
-This repository contains the code, data acquisition pipeline, structural join design, and exploratory analysis for Project 3. The objective of this analysis is to evaluate Charlotte Hornets "points-in-the-paint" performance metrics, examine opponent defensive baselines, and uncover structural insights regarding interior scoring efficiency.
+The CSV files were originally obtained from Kaggle and are retrieved for this notebook from the project's GitHub repository.
 
-## Project Structure
-- `data/raw/`: Contains cached source archives (`archive.zip`) and extracted datasets (`scoring.csv`).
-- `notebooks/`: Analytical Jupyter / Positron notebooks implementing data acquisition, auditing, joining, and visualization.
-- `README.md`: Project documentation, methodology, ethics statement, and structural design specs.
+GitHub dataset URL:
+https://raw.githubusercontent.com/asmaramraj/dsa405-project/main/data/raw/archive.zip
 
-## Data Acquisition Pipeline
-Data is programmatically fetched from the repository archive, safely extracted, locally cached, and loaded using a robust Python engine parser (`engine='python'`) with bad-line handling to ensure zero data corruption or tokenization overflow.
+### Acquisition Method
+The notebook uses Python's requests library to download the data, saves the raw ZIP file to `data/raw/`, and extracts the CSV files. It includes caching, a coursework User-Agent, a one-second request delay, and HTTP error handling.
 
-## Join Design & Structural Assumptions
-- **Join Keys:** `["game_date", "opponent"]`
-- **Grain of Left Table (`scoring.csv`):** One row per individual game appearance.
-- **Grain of Right Table:** One row per opponent venue baseline.
-- **Relationship:** Many-to-one (`validate="m:1"`), ensuring game logs map uniquely to opponent baselines.
-- **Join Type Rationale:** A `left` join is utilized to preserve all primary Hornets game appearance records, preventing silent row-dropping.
+### Join Design
+The analysis uses `gameid` to match Charlotte Hornets game records with opposing-team scoring records in a one-to-one inner join.
 
-## Ethics and Legality in Practice
-- **Plan Compliance:** Data acquisition matches our initial proposal by relying on a clean, publicly licensed repository archive (`archive.zip`) rather than unauthorized automated scraping of live restricted endpoints.
-- **Drift Statement:** Zero drift from proposal specifications.
-- **Guardrails:** Zero logins used, zero paywalls bypassed, no personal data processed, and no technical anti-scraping protections circumvented.
+The join produced 82 records, representing 41 home games and 41 away games.
+
+### Verification
+The notebook uses assertions to check row counts, duplicate game IDs, missing join keys, valid percentages, and the home/away split.
+
+### How to Run
+1. Open `DSA405_002_FA26_P3_asmaramr.ipynb` in Google Colab.
+2. Run the notebook cells from top to bottom.
+3. The acquisition code downloads and caches the data.
+4. The remaining cells perform the join and verification checks.
