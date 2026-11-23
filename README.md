@@ -25,6 +25,8 @@ Although my original question focused on actual points allowed in the paint, the
 - **Publisher URL:** https://www.kaggle.com/datasets/szymonjwiak/nba-scoring-boxscores-1997-2023
 - **Acquisition URL:** https://raw.githubusercontent.com/asmaramraj/dsa405-project/main/data/raw/archive.zip
 - **Files:** scoring.csv and team_scoring.csv
+- **License:** CC BY-NC-SA 4.0 (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International)
+- **License details:** https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 ### Acquisition Method
 I used Python's requests library to retrieve a ZIP archive from GitHub. My acquisition code includes a coursework User-Agent, a one-second delay, local caching, and error handling. The downloaded data is saved to the data/raw folder.
