@@ -1,3 +1,22 @@
+# Charlotte Hornets Home vs. Away Paint Defense Analysis
+
+## Project Overview
+
+This project examines whether the Charlotte Hornets allowed a greater percentage of opponent scoring from the paint during away games compared to home games in the 2025–2026 NBA season.
+
+Using 82 regular-season games, I found that opponents scored an average of 46.36% of their points in the paint during Hornets home games, compared to 43.18% during away games. A Welch's t-test showed that this difference was not statistically significant (p = 0.0769).
+
+Although my original question focused on actual points allowed in the paint, the available dataset measured the percentage of opponent points scored in the paint. Therefore, my analysis focuses on scoring share rather than total paint points.
+
+## Repository Structure
+
+- `DSA405_002_FA26_P2_asmaramr.ipynb` — Initial data exploration and documentation.
+- `DSA405_002_FA26_P3_asmaramr.ipynb` — Data acquisition, cleaning, integration, verification, and final analysis.
+- `data/raw/archive.zip` — Archived NBA scoring dataset.
+- `data/raw/SOURCES.md` — Data source information.
+- `README.md` — Project overview and reproduction instructions.
+
+
 ## P3: Acquisition and Integration
 
 ### Data Sources
